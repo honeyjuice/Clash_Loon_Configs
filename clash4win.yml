@@ -94,6 +94,14 @@ dns:
      ipcidr: # 在这个网段内的 IP 地址会被考虑为被污染的 IP
        - 240.0.0.0/4
        
+tun:
+  enable: true
+  stack: gvisor
+  dns-hijack:
+    - 198.18.0.2:53
+  macOS-auto-route: true
+  macOS-auto-detect-interface: true # 自动检测出口网卡
+       
 # 1. clash DNS 请求逻辑：
 #   (1) 当访问一个域名时， nameserver 与 fallback 列表内的所有服务器并发请求，得到域名对应的 IP 地址。
 #   (2) clash 将选取 nameserver 列表内，解析最快的结果。
