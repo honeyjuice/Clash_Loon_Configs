@@ -1,2 +1,0 @@
-[Script]
-cron "0 0 0 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_xtg.js,tag=手机尚学季
