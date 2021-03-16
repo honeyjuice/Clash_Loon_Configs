@@ -9,13 +9,13 @@ ipv6: false
 proxies: ~
 proxy-groups: ~
 rule-providers:
-  LAN:
+  🖥本地网络:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
     path: ./Rules/Other/LAN
     interval: 86400
-  Download:
+  📥下载:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml
@@ -65,8 +65,8 @@ rule-providers:
     interval: 86400
 
 rules:
-- RULE-SET,LAN,DIRECT
-- RULE-SET,Download,DIRECT
+- RULE-SET,🖥 本地网络,DIRECT
+- RULE-SET,📥 下载,DIRECT
 - RULE-SET,Advertising,⛔️ 广告拦截
 - RULE-SET,Advertising_Domain,⛔️ 广告拦截
 - RULE-SET,AsianMedia,📺 港台番剧
