@@ -65,8 +65,8 @@ rule-providers:
     interval: 86400
 
 rules:
-- RULE-SET,🖥 本地网络,DIRECT
-- RULE-SET,📥 下载,DIRECT
+- RULE-SET,🖥本地网络,DIRECT
+- RULE-SET,📥下载,DIRECT
 - RULE-SET,Advertising,⛔️ 广告拦截
 - RULE-SET,Advertising_Domain,⛔️ 广告拦截
 - RULE-SET,AsianMedia,📺 港台番剧
