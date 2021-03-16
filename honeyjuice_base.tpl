@@ -21,31 +21,31 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml
     path: ./Rules/Other/Download
     interval: 86400
-  Advertising:
+  ⛔️广告拦截:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.yaml
     path: ./Rules/Advertising/Advertising
     interval: 86400
-  Advertising_Domain:
+  ⛔️广告域名拦截:
     type: http
     behavior: domain
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Domain.yaml
     path: ./Rules/Advertising/Advertising_Domain
     interval: 86400
-  AsianMedia:
+  📺亚洲媒体:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AsianMedia/AsianMedia.yaml
     path: ./Rules/Media/AsianMedia
     interval: 86400
-  GlobalMedia:
+  🎥国外媒体:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.yaml
     path: ./Rules/Media/GlobalMedia
     interval: 86400
-  DMM:
+  🔞DMM:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DMM/DMM.yaml
@@ -67,11 +67,11 @@ rule-providers:
 rules:
 - RULE-SET,🖥本地网络,DIRECT
 - RULE-SET,📥下载,DIRECT
-- RULE-SET,Advertising,⛔️ 广告拦截
-- RULE-SET,Advertising_Domain,⛔️ 广告拦截
-- RULE-SET,AsianMedia,📺 港台番剧
-- RULE-SET,GlobalMedia,🎥 国外媒体
-- RULE-SET,DMM,🔞 DMM.R18
+- RULE-SET,⛔️广告拦截,⛔️ 广告拦截
+- RULE-SET,⛔️广告域名拦截,⛔️ 广告拦截
+- RULE-SET,📺亚洲媒体,📺 港台番剧
+- RULE-SET,🎥国外媒体,🎥 国外媒体
+- RULE-SET,🔞DMM,🔞 DMM.R18
 - RULE-SET,Global,🔰 节点选择
 - RULE-SET,Global_Domain,🔰 节点选择
 - GEOIP,CN,DIRECT
