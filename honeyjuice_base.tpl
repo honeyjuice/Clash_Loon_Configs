@@ -51,13 +51,13 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DMM/DMM.yaml
     path: ./Rules/Media/DMM
     interval: 86400
-  Global:
+  🚀代理:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.yaml
     path: ./Rules/Other/Global
     interval: 86400
-  Global_Domain:
+  🚀代理域名:
     type: http
     behavior: domain
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Domain.yaml
@@ -72,7 +72,7 @@ rules:
 - RULE-SET,📺亚洲媒体,📺 港台番剧
 - RULE-SET,🎥国外媒体,🎥 国外媒体
 - RULE-SET,🔞DMM,🔞 DMM.R18
-- RULE-SET,Global,🔰 节点选择
-- RULE-SET,Global_Domain,🔰 节点选择
+- RULE-SET,🚀代理,🔰 节点选择
+- RULE-SET,🚀代理域名,🔰 节点选择
 - GEOIP,CN,DIRECT
 - MATCH,🐟 漏网之鱼
