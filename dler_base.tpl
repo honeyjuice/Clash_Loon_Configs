@@ -140,7 +140,7 @@ proxy-groups: ~
 rule-providers:
   LAN:
     type: http
-    behavior: domain
+    behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
     path: ./Rules/Other/LAN
     interval: 86400
