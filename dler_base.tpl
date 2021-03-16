@@ -4,9 +4,7 @@ socks-port: 57892
 allow-lan: true
 mode: rule
 log-level: info
-external-controller: 127.0.0.1:6170
-secret: ""
-ipv6: true
+ipv6: false
 
 proxies: ~
 proxy-groups: ~
@@ -69,8 +67,8 @@ rule-providers:
 rules:
 - RULE-SET,LAN,DIRECT
 - RULE-SET,Download,DIRECT
-- RULE-SET,Advertising,⛔️广告拦截
-- RULE-SET,Advertising_Domain,⛔️广告拦截
+- RULE-SET,Advertising,⛔️ 广告拦截
+- RULE-SET,Advertising_Domain,⛔️ 广告拦截
 - RULE-SET,AsianMedia,📺 港台番剧
 - RULE-SET,GlobalMedia,🎥 国外媒体
 - RULE-SET,DMM,🔞 DMM.R18
