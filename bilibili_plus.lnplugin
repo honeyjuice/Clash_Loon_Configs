@@ -1,0 +1,4 @@
+# BiliBili去广告
+
+[MITM]
+hostname = app.bilibili.com,api.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com
