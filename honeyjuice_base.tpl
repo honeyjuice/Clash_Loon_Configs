@@ -24,13 +24,13 @@ rule-providers:
   ⛔️广告拦截:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
     path: ./Rules/Advertising/Advertising
     interval: 86400
   ⛔️广告域名拦截:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Domain.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml
     path: ./Rules/Advertising/Advertising_Domain
     interval: 86400
   📺亚洲媒体:
