@@ -33,7 +33,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
     path: ./Rules/Advertising/Advertising
     interval: 86400
-  ⛔️广告域名拦截:
+  ⛔️广告拦截域名:
     type: http
     behavior: domain
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml
@@ -94,9 +94,9 @@ rules:
 - RULE-SET,📥PT下载,DIRECT
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
-- RULE-SET,⛔️广告域名拦截,⛔️ 广告拦截
+- RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
 - RULE-SET,🛡隐私保护,🛡 隐私保护
-- RULE-SET,🛡隐私保护拦截,🛡 隐私保护
+- RULE-SET,🛡隐私保护域名,🛡 隐私保护
 - RULE-SET,📺亚洲媒体,📺 港台番剧
 - RULE-SET,🎥国外媒体,🎥 国外媒体
 - RULE-SET,🔞DMM,🔞 DMM.R18
