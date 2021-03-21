@@ -21,6 +21,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml
     path: ./Rules/Other/Download
     interval: 86400
+  📥PT下载:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    path: ./Rules/Other/PrivateTracker
+    interval: 86400
   ⛔️广告拦截:
     type: http
     behavior: classical
@@ -67,6 +73,7 @@ rule-providers:
 rules:
 - RULE-SET,🖥本地网络,DIRECT
 - RULE-SET,📥下载,DIRECT
+- RULE-SET,📥PT下载,DIRECT
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告域名拦截,⛔️ 广告拦截
 - RULE-SET,📺亚洲媒体,📺 港台番剧
