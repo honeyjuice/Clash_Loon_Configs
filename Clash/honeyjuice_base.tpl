@@ -39,6 +39,24 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml
     path: ./Rules/Advertising/Advertising_Domain
     interval: 86400
+  🛑反劫持:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml
+    path: ./Rules/Advertising/Hijacking
+    interval: 86400
+  🛡隐私保护:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy.yaml
+    path: ./Rules/Advertising/Privacy
+    interval: 86400
+  🛡隐私保护域名:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy_Domain.yaml
+    path: ./Rules/Advertising/Privacy_Domain
+    interval: 86400
   📺亚洲媒体:
     type: http
     behavior: classical
@@ -74,8 +92,11 @@ rules:
 - RULE-SET,🖥本地网络,DIRECT
 - RULE-SET,📥下载,DIRECT
 - RULE-SET,📥PT下载,DIRECT
+- RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告域名拦截,⛔️ 广告拦截
+- RULE-SET,🛡隐私保护,🛡 隐私保护
+- RULE-SET,🛡隐私保护拦截,🛡 隐私保护
 - RULE-SET,📺亚洲媒体,📺 港台番剧
 - RULE-SET,🎥国外媒体,🎥 国外媒体
 - RULE-SET,🔞DMM,🔞 DMM.R18
