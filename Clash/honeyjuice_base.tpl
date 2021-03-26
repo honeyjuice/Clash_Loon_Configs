@@ -12,8 +12,8 @@ dns:
   default-nameserver:
     - 114.114.114.114
     - 8.8.8.8
-  enhanced-mode: redir-host # or fake-ip
-  fake-ip-range: 198.18.0.1/16
+  enhanced-mode: redir-host
+  # fake-ip-range: 198.18.0.1/16
   # fake-ip-filter:
   #   - '*.lan'
   #   - localhost.ptlogin2.qq.com
