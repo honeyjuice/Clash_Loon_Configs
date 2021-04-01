@@ -75,7 +75,7 @@ rule-providers:
   🛡️隐私防护:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Classical.yaml
     path: ./Rules/Advertising/Privacy
     interval: 86400
   🛡️隐私防护域名:
