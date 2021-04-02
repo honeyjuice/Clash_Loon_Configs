@@ -51,7 +51,7 @@ rule-providers:
   📥PT下载:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrivateTracker/PrivateTracker.yaml
+    url: https://cdn.jsdelivr.net/gh/honeyjuice/Clash_Loon_Configs@main/Clash/Rule/PrivateTracker.yaml
     path: ./Rules/Other/PrivateTracker
     interval: 86400
   ⛔️广告拦截:
