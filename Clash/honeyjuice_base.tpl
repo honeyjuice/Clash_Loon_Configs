@@ -117,16 +117,16 @@ rule-providers:
 
 rules:
 - RULE-SET,🖥本地网络,DIRECT
-- RULE-SET,📥下载,📥 PT下载
-- RULE-SET,📥PT下载,📥 PT下载
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
 - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
 - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
+- RULE-SET,🔞DMM,🔞 DMM.R18
+- RULE-SET,📥下载,📥 PT下载
+- RULE-SET,📥PT下载,📥 PT下载
 - RULE-SET,📺亚洲媒体,📺 港台番剧
 - RULE-SET,🎥国外媒体,🎥 国外媒体
-- RULE-SET,🔞DMM,🔞 DMM.R18
 - RULE-SET,🚀代理,🔰 节点选择
 - RULE-SET,🚀代理域名,🔰 节点选择
 - GEOIP,CN,DIRECT
