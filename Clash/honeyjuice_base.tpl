@@ -117,8 +117,8 @@ rule-providers:
 
 rules:
 - RULE-SET,🖥本地网络,DIRECT
-- RULE-SET,📥下载,DIRECT
-- RULE-SET,📥PT下载,DIRECT
+- RULE-SET,📥下载,📥PT下载
+- RULE-SET,📥PT下载,📥PT下载
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
