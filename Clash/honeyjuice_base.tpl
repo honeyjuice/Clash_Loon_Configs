@@ -78,12 +78,6 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Classical.yaml
     path: ./Rules/Advertising/Privacy
     interval: 86400
-  🛡️隐私防护域名:
-    type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Domain.yaml
-    path: ./Rules/Advertising/Privacy_Domain
-    interval: 86400
   📺亚洲媒体:
     type: http
     behavior: classical
@@ -121,7 +115,6 @@ rules:
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
 - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
-- RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
 - RULE-SET,🔞DMM,🔞 DMM.R18
 - RULE-SET,📥下载,📥 PT下载
 - RULE-SET,📥PT下载,📥 PT下载
