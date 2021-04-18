@@ -93,7 +93,7 @@ rule-providers:
   🔞DMM:
     type: http
     behavior: classical
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/DMM/DMM.yaml
+    url: https://cdn.jsdelivr.net/gh/honeyjuice/Clash_Loon_Configs@main/Clash/Rule/DMM.yaml
     path: ./Rules/Media/DMM
     interval: 86400
   🚀代理:
