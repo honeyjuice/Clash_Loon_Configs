@@ -100,13 +100,13 @@ rule-providers:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Alibaba/Alibaba.yaml
-    path: ./Rules/Media/DMM
+    path: ./Rules/Media/Alibaba
     interval: 86400
   🛒阿里巴巴域名:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Alibaba/Alibaba_Domain.yaml
-    path: ./Rules/Media/DMM
+    path: ./Rules/Media/Alibaba_Domain
     interval: 86400
   🚀代理:
     type: http
