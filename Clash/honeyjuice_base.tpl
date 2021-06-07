@@ -8,7 +8,7 @@ ipv6: false
 
 dns:
   enable: true
-  listen: 0.0.0.0:6553
+  listen: 0.0.0.0:6653
   default-nameserver:
     - 114.114.114.114
     - 8.8.8.8
