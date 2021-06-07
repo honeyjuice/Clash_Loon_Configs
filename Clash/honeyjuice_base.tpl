@@ -9,24 +9,21 @@ ipv6: false
 dns:
   enable: true
   listen: 0.0.0.0:6653
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  # 國內域名使用 nameserver 請求
   nameserver:
-  - 119.29.29.29
-  - https://1.1.1.1/dns-query
-  - 45.90.28.57
-  - 223.5.5.5
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  # 國外域名使用 fallback 請求
   fallback:
-  - 114.114.114.114
-  - tls://8.8.8.8:853
-  fallback-filter:
-    geoip: true
-    ipcidr:
-      - 240.0.0.0/4
-    domain:
-      - '+.google.com'
-      - '+.facebook.com'
-      - '+.youtube.com'
-
-proxies: ~
+    - tls://one.one.one.one:853
+    - tls://dns.google:853
+    - https://dns.twnic.tw/dns-query
+    - https://dns.adguard.com/dns-query
+    - https://doh.dns.sb/dns-query
+    
 proxy-groups: ~
 rule-providers:
   🖥本地网络:
