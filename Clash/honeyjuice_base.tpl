@@ -74,6 +74,12 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
     path: ./Rules/Microsoft/Microsoft
     interval: 86400
+  🍎苹果服务:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml
+    path: ./Rules/Apple/Apple
+    interval: 86400 
   🎮游戏平台:
     type: http
     behavior: classical
@@ -135,6 +141,7 @@ rules:
 - RULE-SET,📥下载,📥 PT下载
 - RULE-SET,📥PT下载,📥 PT下载
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
+- RULE-SET,🍎苹果服务,🍎 苹果服务
 - RULE-SET,🎮游戏平台,🎮 游戏平台
 - RULE-SET,📺亚洲媒体,📺 港台番剧
 - RULE-SET,🎥国外媒体,🎥 国外媒体
