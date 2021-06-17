@@ -8,17 +8,15 @@ ipv6: false
 
 dns:
   enable: true
-  #listen: 0.0.0.0:6653
+  listen: 0.0.0.0:6653
   ipv6: false
   enhanced-mode: redir-host
-  # nameserver 裡 DoH / DoT 的域名使用 default-nameserver 請求
   default-nameserver:
     - 119.29.29.29
     - 223.5.5.5
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-  # 國外域名使用 fallback 請求
   fallback:
     - tls://one.one.one.one:853
     - tls://dns.google:853
