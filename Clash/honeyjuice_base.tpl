@@ -70,7 +70,7 @@ rule-providers:
     interval: 86400
   🛡️隐私防护域名:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Privacy/Privacy_Domain.yaml
     path: ./Rules/Advertising/Privacy_Domain
     interval: 86400
