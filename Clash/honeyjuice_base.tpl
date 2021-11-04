@@ -110,6 +110,12 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/honeyjuice/Clash_Loon_Configs@main/Clash/Rule/DMM.yaml
     path: ./Rules/Media/DMM
     interval: 86400
+  🎧Spotify:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
+    path: ./Rules/Media/Spotify
+    interval: 86400
   🛒阿里巴巴:
     type: http
     behavior: classical
@@ -145,6 +151,7 @@ rules:
 - RULE-SET,🛒阿里巴巴,DIRECT
 - RULE-SET,🛒阿里巴巴域名,DIRECT
 - RULE-SET,🔞DMM,🔞 DMM.R18
+- RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📥下载,📥 PT下载
 - RULE-SET,📥PT下载,📥 PT下载
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
