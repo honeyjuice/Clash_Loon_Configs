@@ -20,9 +20,7 @@ dns:
   fallback:
     - tls://one.one.one.one:853
     - tls://dns.google:853
-    - https://dns.twnic.tw/dns-query
     - https://dns.adguard.com/dns-query
-    - https://doh.dns.sb/dns-query
     
 proxy-groups: ~
 rule-providers:
