@@ -102,7 +102,7 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml
     path: ./Rules/Game/Game
     interval: 86400
-   📽哔哩哔哩:
+  📽哔哩哔哩:
     type: http
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml
