@@ -87,8 +87,14 @@ rule-providers:
   🕹Steam:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Steam/Steam.yaml
     path: ./Rules/Game/Steam
+    interval: 86400
+  🎰Epic:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Epic/Epic.yaml
+    path: ./Rules/Game/Epic
     interval: 86400
   🎮游戏平台:
     type: http
@@ -99,7 +105,7 @@ rule-providers:
    📽哔哩哔哩:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml
     path: ./Rules/Media/BiliBili
     interval: 86400
   📺亚洲媒体:
@@ -164,6 +170,7 @@ rules:
 - RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
 - RULE-SET,🕹Steam,🕹 Steam
+- RULE-SET,🎰Epic,🎰 Epic
 - RULE-SET,📥下载,📥 PT下载
 - RULE-SET,📥PT下载,📥 PT下载
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
