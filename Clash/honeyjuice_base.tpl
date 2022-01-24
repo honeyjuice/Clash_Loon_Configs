@@ -132,6 +132,12 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify.yaml
     path: ./Rules/Media/Spotify
     interval: 86400
+  🎞️Netflix:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml
+    path: ./Rules/Media/Netflix
+    interval: 86400    
   🛒阿里巴巴:
     type: http
     behavior: classical
@@ -168,6 +174,7 @@ rules:
 - RULE-SET,🛒阿里巴巴域名,DIRECT
 - RULE-SET,🔞DMM,🔞 DMM.R18
 - RULE-SET,🎧Spotify,🎧 Spotify
+- RULE-SET,🎞️Netflix,🎞️ Netflix
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
 - RULE-SET,🕹Steam,🕹 Steam
 - RULE-SET,🎲Epic,🎲 Epic
