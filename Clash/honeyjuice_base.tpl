@@ -108,12 +108,6 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
     path: ./Rules/Media/BiliBili.yaml
     interval: 86400
-  📺亚洲媒体:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AsianMedia/AsianMedia.yaml
-    path: ./Rules/Media/AsianMedia.yaml
-    interval: 86400
   🎥国外媒体:
     type: http
     behavior: classical
@@ -176,7 +170,6 @@ rules:
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
 - RULE-SET,🍎苹果服务,🍎 苹果服务
 - RULE-SET,🎮游戏平台,🎮 游戏平台
-- RULE-SET,📺亚洲媒体,📺 港台番剧
 - RULE-SET,🎥国外媒体,🎥 国外媒体
 - RULE-SET,🚀代理,🔰 节点选择
 - RULE-SET,🚀代理域名,🔰 节点选择
