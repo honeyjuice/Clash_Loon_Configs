@@ -42,6 +42,12 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
     path: ./Rules/Other/PrivateTracker.yaml
     interval: 86400
+  🧱360:
+    type: http
+    behavior: classical
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/360/360.yaml
+    path: ./Rules/Other/360.yaml
+    interval: 86400
   ⛔️广告拦截:
     type: http
     behavior: classical
@@ -153,6 +159,7 @@ rule-providers:
 
 rules:
 - RULE-SET,🖥本地网络,DIRECT
+- RULE-SET,🧱360,DIRECT
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
