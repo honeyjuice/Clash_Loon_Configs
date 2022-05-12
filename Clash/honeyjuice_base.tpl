@@ -1,7 +1,7 @@
 mixed-port: 57890
 port: 57891
 socks-port: 57892
-allow-lan: true
+allow-lan: false
 mode: rule
 log-level: info
 ipv6: false
