@@ -7,7 +7,7 @@ log-level: info
 ipv6: false
 
 dns:
-  enable: true
+  enable: false
   listen: 0.0.0.0:6653
   ipv6: false
   enhanced-mode: redir-host
