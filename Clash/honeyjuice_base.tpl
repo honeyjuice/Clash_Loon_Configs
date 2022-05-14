@@ -6,22 +6,6 @@ mode: rule
 log-level: info
 ipv6: false
 
-dns:
-  enable: false
-  listen: 0.0.0.0:6653
-  ipv6: false
-  enhanced-mode: redir-host
-  default-nameserver:
-    - 119.29.29.29
-    - 223.5.5.5
-  nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-  fallback:
-    - tls://one.one.one.one:853
-    - tls://dns.google:853
-    - https://dns.adguard.com/dns-query
-    
 proxy-groups: ~
 rule-providers:
   🖥本地网络:
