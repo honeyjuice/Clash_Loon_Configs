@@ -92,12 +92,6 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.yaml
     path: ./Rules/Media/GlobalMedia.yaml
     interval: 86400
-  🔞DMM:
-    type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/honeyjuice/Clash_Loon_Configs@main/Clash/Rule/DMM.yaml
-    path: ./Rules/Media/DMM.yaml
-    interval: 86400
   🎧Spotify:
     type: http
     behavior: classical
