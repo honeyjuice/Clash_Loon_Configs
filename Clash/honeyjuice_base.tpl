@@ -133,7 +133,6 @@ rules:
 - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
 - RULE-SET,🛒阿里巴巴,DIRECT
 - RULE-SET,🛒阿里巴巴域名,DIRECT
-- RULE-SET,🔞DMM,🔞 DMM.R18
 - RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
 - RULE-SET,📥下载,📥 PT下载
