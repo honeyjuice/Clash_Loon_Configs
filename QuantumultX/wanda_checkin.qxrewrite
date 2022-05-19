@@ -1,5 +1,0 @@
-#获取方式:进入签到页面获取，网页端:https://act-m.wandacinemas.com/2005/17621a8caacc4d190dadd/
-
-^https:\/\/user-api-prd-mx\.wandafilm\.com url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/wanda/wanda.cookie.js
-
-hostname = user-api-prd-mx.wandafilm.com
