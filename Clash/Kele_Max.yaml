@@ -1,38 +1,12 @@
-# port: 7890                 #本地http代理端口
-# socks-port: 7891           #本地socks5代理端口
 mixed-port: 57890             #本地混合代理(http和socks5合并）端口
-# redir-port: 7892           #本地Linux/macOS Redir代理端口
-# tproxy-port: 7893          #本地Linux Tproxy代理端口
-
-# authentication:            # 本地SOCKS5/HTTP(S)代理端口认证设置
-#  - "user1:pass1"
-#  - "user2:pass2"
-
-geodata-mode: true         #【Meta专属】使用geoip.dat数据库(默认：false使用mmdb数据库)
+geodata-mode: false         #【Meta专属】使用geoip.dat数据库(默认：false使用mmdb数据库)
 tcp-concurrent: true         #【Meta专属】TCP连接并发，如果域名解析结果对应多个IP，
-                             # 并发所有IP，选择握手最快的IP进行连接
-
 allow-lan: false                  #允许局域网连接(false/true)
 bind-address:                     #监听IP白名单（当allow-lan：true），只允许列表设备
   '*'                             #全部设备
-  # 192.168.122.11                #单个ip4地址
-  # "[aaaa::a8aa:ff:fe09:57d8]"   #单个ip6地址
-  
 mode: rule                 #clash工作模式（rule/global/direct,meta暂不支持script）
-
 log-level: info            #日志等级（info/warning/error/debug/silent）
-
 ipv6: false                #ip6开关，当为false时，停止解析hostanmes为ip6地址
-
-#external-controller: 127.0.0.1:9090   #控制器监听地址
-#external-ui: folder                   #http服务路径，可以放静态web网页，如yacd的控制面板
-                                      #可通过`http://{{external-controller}}/ui`直接使用
-# secret: ""                          #控制器登录密码
-
-
-#interface-name: en0        #出口网卡名称
-#outing-mark: 6666         #流量标记(仅Linux)
-
 profile:                   #缓存设置(文件位置./cache.db)
   store-selected: false    #节点状态记忆（若不同配置有同代理名称,设置值共享）
   store-fake-ip: true      #fake-ip缓存
@@ -65,7 +39,13 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
+      - 🇭🇰 香港IEPL
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其他节点
 
   - name: 📽 哔哩哔哩
     type: select
@@ -87,6 +67,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
       - 🇺🇸 美国节点
       - 🇺🇳 其他节点
+      - DIRECT
 
   - name: 🍎 苹果服务
     type: select
@@ -99,6 +80,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
       - 🇺🇸 美国节点
       - 🇺🇳 其他节点
+      - DIRECT
 
   - name: 🎮 游戏平台
     type: select
@@ -111,6 +93,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
       - 🇺🇸 美国节点
       - 🇺🇳 其他节点
+      - DIRECT
 
   - name: 🎥 国外媒体
     type: select
@@ -147,6 +130,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
       - 🇺🇸 美国节点
       - 🇺🇳 其他节点
+      - DIRECT
 
 
   - name: 🇭🇰 香港IEPL
@@ -156,7 +140,7 @@ proxy-groups:
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 180
+    interval: 300
     # disable-udp: true
     filter: 'HKG IEPL' 
 
@@ -167,7 +151,7 @@ proxy-groups:
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 180
+    interval: 300
     # disable-udp: true
     filter: 'HKG C'
   
@@ -242,7 +226,7 @@ rule-providers:
   🖥本地网络:
     type: http
     behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan_Resolve.yaml
     path: ./Rules/Other/LAN.yaml
     interval: 86400
   📥下载:
@@ -251,7 +235,7 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml
     path: ./Rules/Other/Download.yaml
     interval: 86400
-  📥PT下载:
+  📥PT网站:
     type: http
     behavior: classical
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
@@ -355,7 +339,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- RULE-SET,🖥本地网络,DIRECT
 - RULE-SET,🧱360,DIRECT
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
@@ -367,12 +350,13 @@ rules:
 - RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
 - RULE-SET,📥下载,DIRECT
-- RULE-SET,📥PT下载,📥 PT网站
+- RULE-SET,📥PT网站,📥 PT网站
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
 - RULE-SET,🍎苹果服务,🍎 苹果服务
 - RULE-SET,🎮游戏平台,🎮 游戏平台
 - RULE-SET,🎥国外媒体,🎥 国外媒体
 - RULE-SET,🚀代理,🔰 节点选择
 - RULE-SET,🚀代理域名,🔰 节点选择
+- RULE-SET,🖥本地网络,DIRECT
 - GEOIP,CN,DIRECT
 - MATCH,🐟 漏网之鱼
