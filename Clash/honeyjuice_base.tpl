@@ -144,4 +144,5 @@ rules:
 - RULE-SET,🚀代理,🔰 节点选择
 - RULE-SET,🚀代理域名,🔰 节点选择
 - GEOIP,CN,DIRECT
+- GEOIP,JP,🇯🇵 日本节点
 - MATCH,🐟 漏网之鱼
