@@ -20,7 +20,7 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml
     path: ./Rules/Other/Download.yaml
     interval: 86400
-  📥PT下载:
+  📥PT网站:
     type: http
     behavior: classical
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
