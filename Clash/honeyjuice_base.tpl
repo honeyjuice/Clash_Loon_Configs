@@ -130,7 +130,7 @@ rules:
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
 - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
 - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
-- RULE-SET,📥下载,Direct
+- RULE-SET,📥下载,DIRECT
 - RULE-SET,🛒阿里巴巴,DIRECT
 - RULE-SET,🛒阿里巴巴域名,DIRECT
 - RULE-SET,🎧Spotify,🎧 Spotify
