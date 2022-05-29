@@ -130,11 +130,11 @@ rules:
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
 - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
 - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
+- RULE-SET,📥下载,Direct
 - RULE-SET,🛒阿里巴巴,DIRECT
 - RULE-SET,🛒阿里巴巴域名,DIRECT
 - RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
-- RULE-SET,📥下载,Direct
 - RULE-SET,📥PT网站,📥 PT网站
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
 - RULE-SET,🍎苹果服务,🍎 苹果服务
