@@ -134,8 +134,8 @@ rules:
 - RULE-SET,🛒阿里巴巴域名,DIRECT
 - RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
-- RULE-SET,📥下载,📥 PT下载
-- RULE-SET,📥PT下载,📥 PT下载
+- RULE-SET,📥下载,Direct
+- RULE-SET,📥PT网站,📥 PT网站
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
 - RULE-SET,🍎苹果服务,🍎 苹果服务
 - RULE-SET,🎮游戏平台,🎮 游戏平台
