@@ -124,7 +124,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- RULE-SET,🖥本地网络,DIRECT
 - RULE-SET,🧱360,DIRECT
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
@@ -143,6 +142,7 @@ rules:
 - RULE-SET,🎥国外媒体,🎥 国外媒体
 - RULE-SET,🚀代理,🔰 节点选择
 - RULE-SET,🚀代理域名,🔰 节点选择
+- RULE-SET,🖥本地网络,DIRECT
 - GEOIP,CN,DIRECT
 - GEOIP,JP,🇯🇵 日本节点
 - MATCH,🐟 漏网之鱼
