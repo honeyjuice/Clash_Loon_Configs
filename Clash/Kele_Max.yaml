@@ -207,7 +207,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: 'TUR|THA|GBR'
+    filter: 'TUR|THA|GBR|RUS'
 
 proxy-providers:
   可乐云_Max:
