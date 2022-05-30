@@ -1,0 +1,57 @@
+#!MANAGED-CONFIG https://gist.githubusercontent.com/honeyjuice/呼呼呼/raw/surfboard.conf interval=86400 strict=true
+[General]
+dns-server = 119.29.29.29,223.5.5.5,114.114.114.114,system
+doh-server = https://dns.adguard.com/dns-query
+skip-proxy = 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local,e.crashlytics.com,captive.apple.com,::ffff:0:0:0:0/1,::ffff:128:0:0:0/1
+proxy-test-url = http://www.gstatic.com/generate_204
+internet-test-url = http://connect.rom.miui.com/generate_204
+always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com
+udp-policy-not-supported-behaviour = DIRECT
+
+[Host]
+
+[Proxy]
+
+[Proxy Group]
+🔰 节点选择 = select, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇬🇧 英国节点, 🇷🇺 俄罗斯节点, DIRECT
+📥 PT下载 = select, DIRECT, 🔰 节点选择
+🎧 Spotify = select, 🔰 节点选择, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇬🇧 英国节点, 🇷🇺 俄罗斯节点
+📽 哔哩哔哩 = select, DIRECT, 🔰 节点选择, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点
+Ⓜ️ 微软服务 = select, 🔰 节点选择, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇬🇧 英国节点, 🇷🇺 俄罗斯节点, DIRECT
+🍎 苹果服务 = select, 🔰 节点选择, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇬🇧 英国节点, 🇷🇺 俄罗斯节点, DIRECT
+🎮 游戏平台 = select, 🔰 节点选择, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇬🇧 英国节点, 🇷🇺 俄罗斯节点, DIRECT
+🎥 国外媒体 = select, 🔰 节点选择, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇬🇧 英国节点, 🇷🇺 俄罗斯节点, DIRECT
+📺 港台番剧 = select, 🔰 节点选择, 🇭🇰 深港专线, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇬🇧 英国节点, 🇷🇺 俄罗斯节点, DIRECT
+⛔️ 广告拦截 = select, REJECT, DIRECT
+🛡️ 隐私防护 = select, REJECT, DIRECT
+🐟 漏网之鱼 = select, 🔰 节点选择, DIRECT
+
+🇭🇰 深港专线 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=(深港专线转香港|深港专线\[Trojan测试\]|深港专线[1-9]), update-interval=86400, timeout=3, interval=180, tolerance=30
+🇭🇰 香港节点 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=(移动转香港|联通转香港), update-interval=86400, timeout=3, interval=180, tolerance=30
+🇹🇼 台湾节点 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=台, update-interval=86400, timeout=3, interval=180, tolerance=50
+🇸🇬 新加坡节点 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=坡, update-interval=86400, timeout=3, interval=180, tolerance=50
+🇯🇵 日本节点 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=日, update-interval=86400, timeout=3, interval=180, tolerance=50
+🇺🇲 美国节点 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=美, update-interval=86400, timeout=3, interval=180, tolerance=50
+🇬🇧 英国节点 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=英, update-interval=86400, timeout=3, interval=180, tolerance=50
+🇷🇺 俄罗斯节点 = url-test, policy-path=https://subweb.ccsub.site/sub?target=surge&ver=4&url=https%3A%2F%2Fwww.cordcloud.one%2Flink%2呼呼呼%3Fclash%3D1&list=true&emoji=false, policy-regex-filter=俄, update-interval=86400, timeout=3, interval=180, tolerance=50
+
+[Rule]
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Hijacking/Hijacking.list,⛔️ 广告拦截
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite.list,⛔️ 广告拦截
+DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Domain.list,⛔️ 广告拦截
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Privacy/Privacy.list,🛡️ 隐私防护
+DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Privacy/Privacy_Domain.list,🛡️ 隐私防护
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Download/Download.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PrivateTracker/PrivateTracker.list,📥 PT下载
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Spotify/Spotify.list,🎧 Spotify
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/BiliBili/BiliBili.list,📽 哔哩哔哩
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,Ⓜ️ 微软服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list,🍎 苹果服务
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Game/Game.list,🎮 游戏平台
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia.list,🎥 国外媒体
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AsianMedia/AsianMedia.list,📺 港台番剧
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy.list,🔰 节点选择
+DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Proxy/Proxy_Domain.list,🔰 节点选择
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Lan/Lan.list,DIRECT
+GEOIP,CN,DIRECT
+FINAL,🐟 漏网之鱼
