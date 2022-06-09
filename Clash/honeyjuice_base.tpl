@@ -26,12 +26,6 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
     path: ./Rules/Other/PrivateTracker.yaml
     interval: 86400
-  🧱360:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/360/360.yaml
-    path: ./Rules/Other/360.yaml
-    interval: 86400
   ⛔️广告拦截:
     type: http
     behavior: classical
@@ -98,18 +92,6 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
     path: ./Rules/Media/Spotify.yaml
     interval: 86400 
-  🛒阿里巴巴:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Alibaba/Alibaba.yaml
-    path: ./Rules/Media/Alibaba.yaml
-    interval: 86400
-  🛒阿里巴巴域名:
-    type: http
-    behavior: domain
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Alibaba/Alibaba_Domain.yaml
-    path: ./Rules/Media/Alibaba_Domain.yaml
-    interval: 86400
   🚀代理:
     type: http
     behavior: classical
@@ -124,15 +106,12 @@ rule-providers:
     interval: 86400
 
 rules:
-- RULE-SET,🧱360,DIRECT
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
 - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
 - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
 - RULE-SET,📥下载,DIRECT
-- RULE-SET,🛒阿里巴巴,DIRECT
-- RULE-SET,🛒阿里巴巴域名,DIRECT
 - RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
 - RULE-SET,📥PT网站,📥 PT网站
@@ -144,5 +123,4 @@ rules:
 - RULE-SET,🚀代理域名,🔰 节点选择
 - RULE-SET,🖥本地网络,DIRECT
 - GEOIP,CN,DIRECT
-- GEOIP,JP,🇯🇵 日本节点
 - MATCH,🐟 漏网之鱼
