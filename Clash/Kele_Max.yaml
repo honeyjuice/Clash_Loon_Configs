@@ -15,7 +15,7 @@ proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -27,19 +27,13 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 新加坡节点
-      - 🇺🇸 美国节点
-      - 🇺🇳 其他节点
+      - 🔰 节点选择
 
   - name: 🎧 Spotify
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -52,15 +46,29 @@ proxy-groups:
     proxies:
       - DIRECT
       - 🔰 节点选择
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
+
+  - name: 🔞 Porn网站
+    type: select
+    proxies:
+      - 🔰 节点选择
+#      - 🇭🇰 香港IEPL
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其他节点
+      - DIRECT
+      - REJECT
 
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -73,7 +81,7 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -86,7 +94,7 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -99,7 +107,7 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -123,7 +131,7 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🇭🇰 香港IEPL
+#      - 🇭🇰 香港IEPL
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
@@ -133,16 +141,16 @@ proxy-groups:
       - DIRECT
 
 
-  - name: 🇭🇰 香港IEPL
-    type: url-test
-    use:
-      - 可乐云_Max
-    tolerance: 30
-    # lazy: true
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    # disable-udp: true
-    filter: 'HKG IEPL' 
+#  - name: 🇭🇰 香港IEPL
+#    type: url-test
+#    use:
+#      - 可乐云_Max
+#    tolerance: 30
+#    # lazy: true
+#    url: 'http://www.gstatic.com/generate_204'
+#    interval: 300
+#    # disable-udp: true
+#    filter: 'HKG IEPL|港' 
 
   - name: 🇭🇰 香港节点
     type: url-test
@@ -153,7 +161,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
-    filter: 'HKG C'
+    filter: 'HKG C|港'
   
   - name: 🇹🇼 台湾节点
     type: url-test
@@ -164,7 +172,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: 'TWN'
+    filter: 'TWN|台'
 
   - name: 🇯🇵 日本节点
     type: url-test
@@ -175,7 +183,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: 'JPN'
+    filter: 'JPN|日'
 
   - name: 🇸🇬 新加坡节点
     type: url-test
@@ -186,7 +194,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: 'SGP'
+    filter: 'SGP|坡'
 
   - name: 🇺🇸 美国节点
     type: url-test
@@ -197,7 +205,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: 'USA'
+    filter: 'USA|美'
 
   - name: 🇺🇳 其他节点
     type: select
@@ -207,20 +215,19 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: 'TUR|THA|GBR|RUS'
+    filter: '^(?!.*(HKG|USA|SGP|JPN|TWN|美|日|港|台|坡)).+$'
 
 proxy-providers:
   可乐云_Max:
     type: http
-    url: https://panel.kelecloud.xyz/api/v1/client/subscribe?token=呼呼呼&flag=clash
-    interval: 86400
+    url: https://panel.kelecloud.xyz/api/v1/client/subscribe?token=呼呼呼呼
+    interval: 21600
     path: ./Proxies/可乐云_Max.yaml
     health-check:
       enable: true
       interval: 600
       # lazy: true
       url: http://www.gstatic.com/generate_204
-
 
 rule-providers:
   🖥本地网络:
@@ -240,12 +247,6 @@ rule-providers:
     behavior: classical
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
     path: ./Rules/Other/PrivateTracker.yaml
-    interval: 86400
-  🧱360:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/360/360.yaml
-    path: ./Rules/Other/360.yaml
     interval: 86400
   ⛔️广告拦截:
     type: http
@@ -295,6 +296,11 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml
     path: ./Rules/Game/Game.yaml
     interval: 86400
+  🔞Porn网站:
+    type: http
+    behavior: domain
+    url: https://sub.maoxiongnet.com/getruleset?type=3&url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0xNLUZpcmVmbHkvUnVsZXMvbWFzdGVyL1BST1hZL1Bvcm4ubGlzdA==
+    path: ./Rules/Media/Porn.yaml
   📽哔哩哔哩:
     type: http
     behavior: classical
@@ -313,18 +319,6 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
     path: ./Rules/Media/Spotify.yaml
     interval: 86400 
-  🛒阿里巴巴:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Alibaba/Alibaba.yaml
-    path: ./Rules/Media/Alibaba.yaml
-    interval: 86400
-  🛒阿里巴巴域名:
-    type: http
-    behavior: domain
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Alibaba/Alibaba_Domain.yaml
-    path: ./Rules/Media/Alibaba_Domain.yaml
-    interval: 86400
   🚀代理:
     type: http
     behavior: classical
@@ -339,18 +333,16 @@ rule-providers:
     interval: 86400
 
 rules:
-- RULE-SET,🧱360,DIRECT
-- RULE-SET,📥下载,DIRECT
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
 - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
 - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
 - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
-- RULE-SET,🛒阿里巴巴,DIRECT
-- RULE-SET,🛒阿里巴巴域名,DIRECT
 - RULE-SET,🎧Spotify,🎧 Spotify
 - RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
+- RULE-SET,📥下载,DIRECT
 - RULE-SET,📥PT网站,📥 PT网站
+- RULE-SET,🔞Porn网站,🔞 Porn网站
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
 - RULE-SET,🍎苹果服务,🍎 苹果服务
 - RULE-SET,🎮游戏平台,🎮 游戏平台
