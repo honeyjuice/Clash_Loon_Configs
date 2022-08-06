@@ -11,65 +11,117 @@ profile:                   #缓存设置(文件位置./cache.db)
   store-selected: false    #节点状态记忆（若不同配置有同代理名称,设置值共享）
   store-fake-ip: true      #fake-ip缓存
 
+sniffer:                         #【Meta专属】sniffer域名嗅探器
+  enable: true                   #嗅探开关
+  sniffing:                      #嗅探协议对象：目前支持tls/http
+    - tls
+    - http
+  skip-domain:                   #列表中的sni字段，保留mapping结果，不通过嗅探还原域名
+                                 #优先级比force-domain高
+    - 'Mijia Cloud'              #米家设备，建议加
+    - 'dlg.io.mi.com'
+    - '+.apple.com'              #苹果域名，建议加
+  # - '*.baidu.com'
+    
+  force-domain:                  #需要强制嗅探的域名，默认只对IP嗅探
+  # - '+'                        #去掉注释后等于全局嗅探
+    - 'google.com'
+    
+  #port-whitelist:               #端口白名单，只对名单内的端口进行还原域名
+  # - 80
+  # - 443
+  # - 8000-9000
+
+hosts:                           #host，支持通配符（非通配符域名优先级高于通配符域名）
+  # '*.clash.dev': 127.0.0.1     #例如foo.example.com>*.example.com>.example.com
+  # '.dev': 127.0.0.1
+  # 'alpha.clash.dev': '::1'
+dns:
+  enable: true                 #DNS开关(false/true)
+  listen: 0.0.0.0:6553           #DNS监听地址
+  # ipv6: false                #IP6解析开关；如果为false，将返回ip6结果为空
+  
+  default-nameserver:          #解析非IP的dns用的dns服务器,只支持纯IP
+    - 119.29.29.29
+    - 223.5.5.5
+    
+  #nameserver-policy:                #指定域名使用自定义DNS解析
+  # 'www.baidu.com': 'https://223.5.5.5/dns-query'
+  # '+.internal.crop.com': '114.114.114.114'
+  
+  enhanced-mode: redir-host          #DNS模式(redir-host/fake-ip)
+                                     #【Meta专属】redir-host传递域名，可远程解析
+  fake-ip-range: 198.18.0.1/16       #Fake-IP解析地址池
+  # use-hosts: true                  #查询hosts配置并返回真实IP
+  
+  # fake-ip-filter:                  #Fake-ip过滤，列表中的域名返回真实ip
+  #   - '*.lan'
+  #   - '*.linksys.com'
+  #   - '+.pool.ntp.org'
+  #   - localhost.ptlogin2.qq.com
+  
+  proxy-server-nameserver:          #【Meta专属】解析代理服务器域名的dns
+   - https://dns.adguard.com/dns-query
+   - https://doh.opendns.com/dns-query
+
+  nameserver:                        #默认DNS服务器，支持udp/tcp/dot/doh/doq
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  # - dhcp://en0                     #dns from dhcp
+    
+  fallback:                          #回落DNS服务器，支持udp/tcp/dot/doh/doq
+    - https://dns.adguard.com/dns-query
+    - https://doh.opendns.com/dns-query
+
+                                     
+  fallback-filter:                   #回落DNS服务器过滤
+    geoip: true                      #为真时，不匹配为geoip规则的使用fallback返回结果
+    geoip-code: CN                   #geoip匹配区域设定
+    #geosite:                         #【Meta专属】设定geosite某分类使用fallback返回结果
+    #  - gfw
+    ipcidr:                          #列表中的ip使用fallback返回解析结果
+      - 240.0.0.0/4
+    domain:                          #列表中的域名使用fallback返回解析结果
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
+      - 🔭 负载均衡
+      - 🚀 故障切换
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
       - 🇺🇸 美国节点
       - 🇺🇳 其他节点
 
-  - name: 📥 PT网站
+  - name: 📥 下载
     type: select
     proxies:
       - DIRECT
       - 🔰 节点选择
 
-  - name: 🎧 Spotify
-    type: select
-    proxies:
-      - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 新加坡节点
-      - 🇺🇸 美国节点
-      - 🇺🇳 其他节点
-
-  - name: 📽 哔哩哔哩
+  - name: 🌐 PT网站
     type: select
     proxies:
       - DIRECT
       - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-
-  - name: 🔞 Porn网站
-    type: select
-    proxies:
-      - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 新加坡节点
-      - 🇺🇸 美国节点
-      - 🇺🇳 其他节点
-      - DIRECT
-      - REJECT
 
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
+      - 🔭 负载均衡
+      - 🚀 故障切换
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -81,8 +133,11 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
+      - 🔭 负载均衡
+      - 🚀 故障切换
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -94,8 +149,11 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
+      - 🔭 负载均衡
+      - 🚀 故障切换
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -107,13 +165,17 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
+      - 🔭 负载均衡
+      - 🚀 故障切换
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
       - 🇺🇸 美国节点
       - 🇺🇳 其他节点
+      - DIRECT
 
   - name: ⛔️ 广告拦截
     type: select
@@ -131,8 +193,11 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-#      - 🇭🇰 香港IEPL
-      - 🇭🇰 香港节点
+      - 🔭 负载均衡
+      - 🚀 故障切换
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -140,20 +205,46 @@ proxy-groups:
       - 🇺🇳 其他节点
       - DIRECT
 
+  - name: 🔭 负载均衡
+    type: load-balance
+    proxies:
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 180
+    # lazy: true
+    # disable-udp: true
+    # filter: 'HK'            #【Meta专属】代理筛选
+    strategy: consistent-hashing   #策略：round-robin ：所有请求不使用同一代理
+                              #consistent-hashing：同一有效顶级域名(eTLD)使用同一代理
 
-#  - name: 🇭🇰 香港IEPL
-#    type: url-test
-#    use:
-#      - 可乐云_Max
-#    tolerance: 30
-#    # lazy: true
-#    url: 'http://www.gstatic.com/generate_204'
-#    interval: 300
-#    # disable-udp: true
-#    filter: 'HKG IEPL|港' 
+  - name: 🚀 故障切换
+    type: fallback         #通过httping URL，当没有ping值时，自动切换下一个节点
+    proxies:
+      - 🇭🇰 CC香港
+      - 🇭🇰 KLY香港
+      - 🇭🇰 RZY香港
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    # lazy: true
+    # disable-udp: true
+    # filter: 'HK'          #【Meta专属】代理筛选
 
-  - name: 🇭🇰 香港节点
-    type: url-test
+  - name: 🇭🇰 CC香港
+    type: load-balance
+    use:
+      - CordCloud_NaNa
+    tolerance: 30
+    # lazy: true
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    # disable-udp: true
+    filter: '深港专线\[|深港专线[1-9]|香港'
+    strategy: consistent-hashing
+  
+  - name: 🇭🇰 KLY香港
+    type: load-balance
     use:
       - 可乐云_Max
     tolerance: 30
@@ -161,68 +252,117 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
-    filter: 'HKG C|港'
+    filter: '香港'
+    strategy: consistent-hashing
+  
+  - name: 🇭🇰 RZY香港
+    type: load-balance
+    use:
+      - 忍者云_6
+    tolerance: 30
+    # lazy: true
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    # disable-udp: true
+    filter: '港'
+    strategy: consistent-hashing
   
   - name: 🇹🇼 台湾节点
-    type: url-test
+    type: load-balance
     use:
       - 可乐云_Max
+      - CordCloud_NaNa
+      - 忍者云_6
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 600
+    interval: 300
     # disable-udp: true
-    filter: 'TWN|台'
+    filter: '台'
+    strategy: consistent-hashing
 
   - name: 🇯🇵 日本节点
-    type: url-test
+    type: load-balance
     use:
       - 可乐云_Max
+      - CordCloud_NaNa
+      - 忍者云_6
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 600
+    interval: 300
     # disable-udp: true
-    filter: 'JPN|日'
+    filter: '日'
+    strategy: consistent-hashing
 
   - name: 🇸🇬 新加坡节点
-    type: url-test
+    type: load-balance
     use:
       - 可乐云_Max
+      - CordCloud_NaNa
+      - 忍者云_6
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 600
+    interval: 300
     # disable-udp: true
-    filter: 'SGP|坡'
+    filter: '新|坡'
+    strategy: consistent-hashing
 
   - name: 🇺🇸 美国节点
-    type: url-test
+    type: load-balance
     use:
       - 可乐云_Max
+      - CordCloud_NaNa
+      - 忍者云_6
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 600
+    interval: 300
     # disable-udp: true
-    filter: 'USA|美'
+    filter: '美'
+    strategy: consistent-hashing
 
   - name: 🇺🇳 其他节点
     type: select
     use:
       - 可乐云_Max
+      - CordCloud_NaNa
+      - 忍者云_6
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: '^(?!.*(HKG|USA|SGP|JPN|TWN|美|日|港|台|坡)).+$'
+    filter: '^(?!.*(HKG|USA|SGP|JPN|TWN|美|日|港|台|坡|新)).+$'
 
 proxy-providers:
   可乐云_Max:
     type: http
-    url: https://panel.kelecloud.xyz/api/v1/client/subscribe?token=呼呼呼呼
+    url: https://panel.kelecloud.xyz/api/v1/client/subscribe?token=呼呼呼&flag=clash
     interval: 21600
     path: ./Proxies/可乐云_Max.yaml
+    health-check:
+      enable: true
+      interval: 600
+      # lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  CordCloud_NaNa:
+    type: http
+    url: https://www.cordcloud.biz/link/呼呼呼?clash=1
+    interval: 21600
+    path: ./Proxies/CordCloud_NaNa.yaml
+    health-check:
+      enable: true
+      interval: 600
+      # lazy: true
+      url: http://www.gstatic.com/generate_204
+
+  忍者云_6:
+    type: http
+    url: https://renzhesub.com/link/呼呼呼?clash=1
+    interval: 21600
+    path: ./Proxies/忍者云_6.yaml
     health-check:
       enable: true
       interval: 600
@@ -242,23 +382,29 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml
     path: ./Rules/Other/Download.yaml
     interval: 86400
-  📥PT网站:
+  🌐PT网站:
     type: http
     behavior: classical
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
     path: ./Rules/Other/PrivateTracker.yaml
     interval: 86400
-  ⛔️广告拦截:
+  ⛔️广告关键词:
     type: http
     behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
-    path: ./Rules/Advertising/Advertising.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
+    path: ./Rules/Advertising/BanAD.yaml
     interval: 86400
-  ⛔️广告拦截域名:
+  ⛔️EasyList:
     type: http
-    behavior: domain
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml
-    path: ./Rules/Advertising/Advertising_Domain.yaml
+    behavior: classical
+    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml
+    path: ./Rules/Advertising/BanEasyList.yaml
+    interval: 86400
+  ⛔️EasyListChina:
+    type: http
+    behavior: classical
+    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml
+    path: ./Rules/Advertising/BanEasyListChina.yaml
     interval: 86400
   🛑反劫持:
     type: http
@@ -269,14 +415,14 @@ rule-providers:
   🛡️隐私防护:
     type: http
     behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy.yaml
-    path: ./Rules/Advertising/Privacy.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EasyPrivacy/EasyPrivacy.yaml
+    path: ./Rules/Advertising/EasyPrivacy.yaml
     interval: 86400
   🛡️隐私防护域名:
     type: http
     behavior: domain
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy_Domain.yaml
-    path: ./Rules/Advertising/Privacy_Domain.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EasyPrivacy/EasyPrivacy_Domain.yaml
+    path: ./Rules/Advertising/EasyPrivacy_Domain.yaml
     interval: 86400
   Ⓜ️微软服务:
     type: http
@@ -296,29 +442,12 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml
     path: ./Rules/Game/Game.yaml
     interval: 86400
-  🔞Porn网站:
-    type: http
-    behavior: domain
-    url: https://sub.maoxiongnet.com/getruleset?type=3&url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0xNLUZpcmVmbHkvUnVsZXMvbWFzdGVyL1BST1hZL1Bvcm4ubGlzdA==
-    path: ./Rules/Media/Porn.yaml
-  📽哔哩哔哩:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
-    path: ./Rules/Media/BiliBili.yaml
-    interval: 86400
   🎥国外媒体:
     type: http
     behavior: classical
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.yaml
     path: ./Rules/Media/GlobalMedia.yaml
     interval: 86400
-  🎧Spotify:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
-    path: ./Rules/Media/Spotify.yaml
-    interval: 86400 
   🚀代理:
     type: http
     behavior: classical
@@ -334,15 +463,13 @@ rule-providers:
 
 rules:
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
-- RULE-SET,⛔️广告拦截,⛔️ 广告拦截
-- RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
+- RULE-SET,⛔️广告关键词,⛔️ 广告拦截
+- RULE-SET,⛔️EasyList,⛔️ 广告拦截
+- RULE-SET,⛔️EasyListChina,⛔️ 广告拦截
 - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
 - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
-- RULE-SET,🎧Spotify,🎧 Spotify
-- RULE-SET,📽哔哩哔哩,📽 哔哩哔哩
-- RULE-SET,📥下载,DIRECT
-- RULE-SET,📥PT网站,📥 PT网站
-- RULE-SET,🔞Porn网站,🔞 Porn网站
+- RULE-SET,📥下载,📥 下载
+- RULE-SET,🌐PT网站,🌐 PT网站
 - RULE-SET,Ⓜ️微软服务,Ⓜ️ 微软服务
 - RULE-SET,🍎苹果服务,🍎 苹果服务
 - RULE-SET,🎮游戏平台,🎮 游戏平台
