@@ -33,6 +33,12 @@ sniffer:                         #【Meta专属】sniffer域名嗅探器
   # - 8000-9000
 
 hosts:                           #host，支持通配符（非通配符域名优先级高于通配符域名）
+  'tracker.hdchina.org': 198.41.209.177
+  'daydream.dmhy.best': 198.41.209.177
+  'tracker.hdsky.me': 198.41.209.177
+  't.et8.org': 198.41.209.177
+  'tracker.m-team.cc': 198.41.209.177
+  'chdbits.co': 198.41.209.177
   # '*.clash.dev': 127.0.0.1     #例如foo.example.com>*.example.com>.example.com
   # '.dev': 127.0.0.1
   # 'alpha.clash.dev': '::1'
@@ -61,7 +67,7 @@ dns:
   #   - localhost.ptlogin2.qq.com
   
   proxy-server-nameserver:          #【Meta专属】解析代理服务器域名的dns
-   - https://dns.quad9.net/dns-query
+   - quic://dns.adguard-dns.com 
    - https://dns.oszx.co/dns-query
    - https://doh.opendns.com/dns-query
 
@@ -71,16 +77,16 @@ dns:
   # - dhcp://en0                     #dns from dhcp
     
   fallback:                          #回落DNS服务器，支持udp/tcp/dot/doh/doq
-   - https://dns.quad9.net/dns-query
+   - quic://dns.adguard-dns.com
+   - https://dns.comss.one/dns-query
    - https://dns.oszx.co/dns-query
    - https://doh.opendns.com/dns-query
-
                                      
   fallback-filter:                   #回落DNS服务器过滤
     geoip: true                      #为真时，不匹配为geoip规则的使用fallback返回结果
     geoip-code: CN                   #geoip匹配区域设定
-    #geosite:                         #【Meta专属】设定geosite某分类使用fallback返回结果
-    #  - gfw
+    geosite:                       #【Meta专属】设定geosite某分类使用fallback返回结果
+      - gfw
     ipcidr:                          #列表中的ip使用fallback返回解析结果
       - 240.0.0.0/4
     domain:                          #列表中的域名使用fallback返回解析结果
@@ -97,7 +103,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -125,7 +130,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -142,7 +146,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -159,7 +162,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -176,7 +178,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -211,7 +212,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -226,7 +226,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
     url: 'http://www.gstatic.com/generate_204'
     interval: 180
     # lazy: true
@@ -241,7 +240,6 @@ proxy-groups:
       - 🇭🇰 CC香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-      - 🇭🇰 PRPR香港
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # lazy: true
@@ -249,62 +247,49 @@ proxy-groups:
     # filter: 'HK'          #【Meta专属】代理筛选
 
   - name: 🇭🇰 CC香港
-    type: load-balance
+    type: url-test
     use:
-      - CordCloud_6
+      - CordCloud_NaNa
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+    interval: 180
     # disable-udp: true
     filter: '深港专线\[|深港专线[1-9]|香港'
-    strategy: consistent-hashing
+    # strategy: consistent-hashing
   
   - name: 🇭🇰 KLY香港
-    type: load-balance
+    type: url-test
     use:
       - 可乐云_Max
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+    interval: 180
     # disable-udp: true
     filter: '香港'
-    strategy: consistent-hashing
+    # strategy: consistent-hashing
   
   - name: 🇭🇰 RZY香港
-    type: load-balance
+    type: url-test
     use:
       - 忍者云_6
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+    interval: 180
     # disable-udp: true
     filter: '港'
-    strategy: consistent-hashing
+    # strategy: consistent-hashing
 
-  - name: 🇭🇰 PRPR香港
-    type: load-balance
-    use:
-      - PRPR云
-    tolerance: 30
-    # lazy: true
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    # disable-udp: true
-    filter: '港'
-    strategy: consistent-hashing
-  
   - name: 🇹🇼 台湾节点
     type: load-balance
     use:
       - 可乐云_Max
-      - CordCloud_6
+      - CordCloud_NaNa
       - 忍者云_6
-      - PRPR云
     tolerance: 30
-    # lazy: true
+    lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
@@ -315,11 +300,10 @@ proxy-groups:
     type: load-balance
     use:
       - 可乐云_Max
-      - CordCloud_6
+      - CordCloud_NaNa
       - 忍者云_6
-      - PRPR云
     tolerance: 30
-    # lazy: true
+    lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
@@ -330,11 +314,10 @@ proxy-groups:
     type: load-balance
     use:
       - 可乐云_Max
-      - CordCloud_6
+      - CordCloud_NaNa
       - 忍者云_6
-      - PRPR云
     tolerance: 30
-    # lazy: true
+    lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
@@ -345,11 +328,10 @@ proxy-groups:
     type: load-balance
     use:
       - 可乐云_Max
-      - CordCloud_6
+      - CordCloud_NaNa
       - 忍者云_6
-      - PRPR云
     tolerance: 30
-    # lazy: true
+    lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
@@ -360,10 +342,9 @@ proxy-groups:
     type: select
     use:
       - 可乐云_Max
-      - CordCloud_6
+      - CordCloud_NaNa
       - 忍者云_6
-      - PRPR云
-    # lazy: true
+    lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
@@ -382,11 +363,11 @@ proxy-providers:
       # lazy: true
       url: http://www.gstatic.com/generate_204
 
-  CordCloud_6:
+  CordCloud_NaNa:
     type: http
     url: https://www.cordcloud.biz/link/呼呼呼?clash=1
     interval: 21600
-    path: ./Proxies/CordCloud_6.yaml
+    path: ./Proxies/CordCloud_NaNa.yaml
     health-check:
       enable: true
       interval: 600
@@ -404,29 +385,12 @@ proxy-providers:
       # lazy: true
       url: http://www.gstatic.com/generate_204
 
-  PRPR云:
-    type: http
-    url: https://api.prprcloud.life/clash/呼呼呼/呼呼呼/
-    interval: 21600
-    path: ./Proxies/PRPR云.yaml
-    health-check:
-      enable: true
-      interval: 600
-      # lazy: true
-      url: http://www.gstatic.com/generate_204
-
 rule-providers:
   🖥本地网络:
     type: http
     behavior: classical
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
     path: ./Rules/Other/LAN.yaml
-    interval: 86400
-  🖥DNS:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DNS/DNS.yaml
-    path: ./Rules/Other/DNS.yaml
     interval: 86400
   📥下载:
     type: http
@@ -520,7 +484,6 @@ rule-providers:
     interval: 86400
 
 rules:
-- RULE-SET,🖥DNS,DIRECT
 - RULE-SET,🛑反劫持,⛔️ 广告拦截
 - RULE-SET,⛔️广告关键词,⛔️ 广告拦截
 - RULE-SET,⛔️EasyList,⛔️ 广告拦截
