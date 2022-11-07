@@ -3,3 +3,4 @@ payload:
   - DOMAIN-SUFFIX,unicom.local
   - DOMAIN-SUFFIX,checkip.synology.com
   - DOMAIN-SUFFIX,talkingdata.com
+  - DOMAIN-SUFFIX,checkip.dyndns.org
