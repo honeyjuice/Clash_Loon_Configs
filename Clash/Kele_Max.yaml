@@ -228,7 +228,6 @@ proxy-groups:
       - 🇭🇰 AmyTelecom香港
       - 🇭🇰 KLY香港
       - 🇭🇰 RZY香港
-
     url: 'http://www.gstatic.com/generate_204'
     interval: 180
     # lazy: true
