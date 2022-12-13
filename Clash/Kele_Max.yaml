@@ -32,13 +32,13 @@ sniffer:                         #【Meta专属】sniffer域名嗅探器
   # - 443
   # - 8000-9000
 
-hosts:                           #host，支持通配符（非通配符域名优先级高于通配符域名）
-  'tracker.hdchina.org': 198.41.209.177
-  'daydream.dmhy.best': 198.41.209.177
-  'tracker.hdsky.me': 198.41.209.177
-  't.et8.org': 198.41.209.177
-  'tracker.m-team.cc': 198.41.209.177
-  'chdbits.co': 198.41.209.177
+#hosts:                           #host，支持通配符（非通配符域名优先级高于通配符域名）
+  #'tracker.hdchina.org': 172.64.89.126
+  #'daydream.dmhy.best': 172.64.89.126
+  #'tracker.hdsky.me': 172.64.89.126
+  #'t.et8.org': 172.64.89.126
+  #'tracker.m-team.cc': 172.64.89.126
+  #'chdbits.co': 172.64.89.126
   # '*.clash.dev': 127.0.0.1     #例如foo.example.com>*.example.com>.example.com
   # '.dev': 127.0.0.1
   # 'alpha.clash.dev': '::1'
@@ -67,20 +67,18 @@ dns:
   #   - localhost.ptlogin2.qq.com
   
   proxy-server-nameserver:          #【Meta专属】解析代理服务器域名的dns
-   - quic://dns.adguard-dns.com 
-   - https://dns.oszx.co/dns-query
+   - https://dns.adguard-dns.com/dns-query
    - https://doh.opendns.com/dns-query
 
   nameserver:                        #默认DNS服务器，支持udp/tcp/dot/doh/doq
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+    - 119.29.29.29
   # - dhcp://en0                     #dns from dhcp
     
   fallback:                          #回落DNS服务器，支持udp/tcp/dot/doh/doq
-   - quic://dns.adguard-dns.com
-   - https://dns.comss.one/dns-query
-   - https://dns.oszx.co/dns-query
+   - https://dns.adguard-dns.com/dns-query
    - https://doh.opendns.com/dns-query
+   - https://doh.dns.sb/dns-query
                                      
   fallback-filter:                   #回落DNS服务器过滤
     geoip: true                      #为真时，不匹配为geoip规则的使用fallback返回结果
@@ -102,9 +100,10 @@ proxy-groups:
     proxies:
       - 🔭 负载均衡
       - 🚀 故障切换
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
       - 🇭🇰 AmyTelecom香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -129,9 +128,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🔭 负载均衡
       - 🚀 故障切换
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
       - 🇭🇰 AmyTelecom香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -145,9 +145,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🔭 负载均衡
       - 🚀 故障切换
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
       - 🇭🇰 AmyTelecom香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -161,9 +162,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🔭 负载均衡
       - 🚀 故障切换
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
       - 🇭🇰 AmyTelecom香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -177,9 +179,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🔭 负载均衡
       - 🚀 故障切换
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
       - 🇭🇰 AmyTelecom香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -193,7 +196,7 @@ proxy-groups:
       - REJECT
       - DIRECT
 
-  - name: 🍃 应用净化
+  - name: 🍃 AdGuard
     type: select
     proxies:
       - REJECT
@@ -211,9 +214,10 @@ proxy-groups:
       - 🔰 节点选择
       - 🔭 负载均衡
       - 🚀 故障切换
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
       - 🇭🇰 AmyTelecom香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -226,8 +230,9 @@ proxy-groups:
     type: load-balance
     proxies:
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
     url: 'http://www.gstatic.com/generate_204'
     interval: 180
     # lazy: true
@@ -240,37 +245,14 @@ proxy-groups:
     type: fallback         #通过httping URL，当没有ping值时，自动切换下一个节点
     proxies:
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 KLY香港
-      - 🇭🇰 RZY香港
+      - 🇭🇰 CordCloud香港
+      - 🇭🇰 可乐云香港
+      - 🇭🇰 忍者云香港
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # lazy: true
     # disable-udp: true
     # filter: 'HK'          #【Meta专属】代理筛选
-  
-  - name: 🇭🇰 KLY香港
-    type: load-balance
-    use:
-      - 可乐云_Max
-    tolerance: 30
-    # lazy: true
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 180
-    # disable-udp: true
-    filter: '香港'
-    strategy: consistent-hashing
-  
-  - name: 🇭🇰 RZY香港
-    type: load-balance
-    use:
-      - 忍者云_6
-    tolerance: 30
-    # lazy: true
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 180
-    # disable-udp: true
-    filter: '港'
-    strategy: consistent-hashing
 
   - name: 🇭🇰 AmyTelecom香港
     type: url-test
@@ -284,12 +266,50 @@ proxy-groups:
     filter: '港'
     # strategy: consistent-hashing
 
+  - name: 🇭🇰 CordCloud香港
+    type: url-test
+    use:
+      - CordCloud_NaNa
+    tolerance: 30
+    # lazy: true
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 180
+    # disable-udp: true
+    filter: '香港'
+    # strategy: consistent-hashing
+
+  - name: 🇭🇰 可乐云香港
+    type: url-test
+    use:
+      - 可乐云_Max
+    tolerance: 30
+    # lazy: true
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 180
+    # disable-udp: true
+    filter: '香港'
+    # strategy: consistent-hashing
+  
+  - name: 🇭🇰 忍者云香港
+    type: url-test
+    use:
+      - 忍者云_6
+    tolerance: 30
+    # lazy: true
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 180
+    # disable-udp: true
+    filter: '港'
+    # strategy: consistent-hashing
+
+
   - name: 🇹🇼 台湾节点
     type: load-balance
     use:
+      - AmyTelecom
+      - CordCloud_NaNa
       - 可乐云_Max
       - 忍者云_6
-      - AmyTelecom
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
@@ -301,9 +321,10 @@ proxy-groups:
   - name: 🇯🇵 日本节点
     type: load-balance
     use:
+      - AmyTelecom
+      - CordCloud_NaNa
       - 可乐云_Max
       - 忍者云_6
-      - AmyTelecom
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
@@ -315,9 +336,10 @@ proxy-groups:
   - name: 🇸🇬 新加坡节点
     type: load-balance
     use:
+      - AmyTelecom
+      - CordCloud_NaNa
       - 可乐云_Max
       - 忍者云_6
-      - AmyTelecom
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
@@ -329,9 +351,10 @@ proxy-groups:
   - name: 🇺🇸 美国节点
     type: load-balance
     use:
+      - AmyTelecom
+      - CordCloud_NaNa
       - 可乐云_Max
       - 忍者云_6
-      - AmyTelecom
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
@@ -343,9 +366,10 @@ proxy-groups:
   - name: 🇺🇳 其他节点
     type: select
     use:
+      - AmyTelecom
+      - CordCloud_NaNa
       - 可乐云_Max
       - 忍者云_6
-      - AmyTelecom
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
@@ -354,28 +378,6 @@ proxy-groups:
 
 
 proxy-providers:
-  可乐云_Max:
-    type: http
-    url: https://panel.kelecloud.xyz/api/v1/client/subscribe?token=呼呼呼&flag=clash
-    interval: 21600
-    path: ./Proxies/可乐云_Max.yaml
-    health-check:
-      enable: true
-      interval: 600
-      # lazy: true
-      url: http://www.gstatic.com/generate_204
-
-  忍者云_6:
-    type: http
-    url: https://renzhesub.com/link/呼呼呼?clash=1
-    interval: 21600
-    path: ./Proxies/忍者云_6.yaml
-    health-check:
-      enable: true
-      interval: 600
-      # lazy: true
-      url: http://www.gstatic.com/generate_204
-
   AmyTelecom:
     type: http
     url: https://api.nxtlnodes.com/Subscription/Clash?sid=31574&token=呼呼呼
@@ -385,6 +387,34 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
+  CordCloud_NaNa:
+    type: http
+    url: https://www.ccsub.online/link/呼呼呼?sub=2
+    interval: 21600
+    path: ./Proxies/CordCloud_NaNa.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  可乐云_Max:
+    type: http
+    url: https://panel.kelecloud.xyz/api/v1/client/subscribe?token=呼呼呼&flag=clash
+    interval: 21600
+    path: ./Proxies/可乐云_Max.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+  忍者云_6:
+    type: http
+    url: https://renzhesub.com/link/呼呼呼?clash=1
+    interval: 21600
+    path: ./Proxies/忍者云_6.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
 
 rule-providers:
   🖥本地网络:
@@ -405,23 +435,18 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.yaml
     path: ./Rules/Other/PrivateTracker.yaml
     interval: 86400
-  ⛔️广告关键词:
+
+  ⛔️广告拦截:
     type: http
     behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
-    path: ./Rules/Advertising/BanAD.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite.yaml
+    path: ./Rules/Advertising/AdvertisingLite.yaml
     interval: 86400
-  ⛔️EasyList:
+  ⛔️广告拦截域名:
     type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml
-    path: ./Rules/Advertising/BanEasyList.yaml
-    interval: 86400
-  ⛔️EasyListChina:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml
-    path: ./Rules/Advertising/BanEasyListChina.yaml
+    behavior: domain
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml
+    path: ./Rules/Advertising/AdvertisingLite_Domain.yaml
     interval: 86400
   🛑反劫持:
     type: http
@@ -438,26 +463,26 @@ rule-providers:
   ⚪白名单:
     type: http
     behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/honeyjuice/Clash_Loon_Configs/main/Clash/Rule/whitelist.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/honeyjuice/Clash_Loon_Configs/main/Clash/Rule/WhiteList.yaml
     path: ./Rules/Other/whitelist.yaml
     interval: 86400
-  🍃应用净化:
+  🍃AdGuard:
     type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
-    path: ./Rules/Advertising/BanProgramAD.yaml
+    behavior: domain
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdGuardSDNSFilter/AdGuardSDNSFilter_Domain.yaml
+    path: ./Rules/Advertising/AdGuardSDNSFilter_Domain.yaml
     interval: 86400
   🛡️隐私防护:
     type: http
     behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EasyPrivacy/EasyPrivacy.yaml
-    path: ./Rules/Advertising/EasyPrivacy.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy.yaml
+    path: ./Rules/Advertising/Privacy.yaml
     interval: 86400
   🛡️隐私防护域名:
     type: http
     behavior: domain
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EasyPrivacy/EasyPrivacy_Domain.yaml
-    path: ./Rules/Advertising/EasyPrivacy_Domain.yaml
+    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy_Domain.yaml
+    path: ./Rules/Advertising/Privacy_Domain.yaml
     interval: 86400
   Ⓜ️微软服务:
     type: http
@@ -495,15 +520,13 @@ rule-providers:
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Domain.yaml
     path: ./Rules/Other/Global_Domain.yaml
     interval: 86400
-
 rules:
   - RULE-SET,⚪白名单,DIRECT
   - RULE-SET,🛑360,⛔️ 广告拦截
   - RULE-SET,🛑反劫持,⛔️ 广告拦截
-  - RULE-SET,⛔️广告关键词,⛔️ 广告拦截
-  - RULE-SET,⛔️EasyList,⛔️ 广告拦截
-  - RULE-SET,⛔️EasyListChina,⛔️ 广告拦截
-  - RULE-SET,🍃应用净化,🍃 应用净化
+  - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
+  - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
+  - RULE-SET,🍃AdGuard,🍃 AdGuard
   - RULE-SET,🛡️隐私防护,🛡️ 隐私防护
   - RULE-SET,🛡️隐私防护域名,🛡️ 隐私防护
   - RULE-SET,📥下载,📥 下载
