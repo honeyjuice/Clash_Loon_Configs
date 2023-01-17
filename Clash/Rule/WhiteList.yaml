@@ -10,4 +10,4 @@ payload:
   - DOMAIN-SUFFIX,tbskip.taobao.com
   - DOMAIN-SUFFIX,ntalker.com
   - DOMAIN-SUFFIX,bcebos.com
-  - IP-CIDR,20.254.1.9,DIRECT
+  - IP-CIDR,20.254.1.9/32,DIRECT
