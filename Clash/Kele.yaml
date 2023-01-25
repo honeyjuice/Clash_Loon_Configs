@@ -104,6 +104,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -132,6 +133,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -149,6 +151,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -166,6 +169,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -183,6 +187,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -218,6 +223,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -233,6 +239,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
     url: 'http://www.gstatic.com/generate_204'
     interval: 180
     # lazy: true
@@ -248,6 +255,7 @@ proxy-groups:
       - 🇭🇰 CordCloud香港
       - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
+      - 🇭🇰 一日机场香港
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # lazy: true
@@ -281,13 +289,13 @@ proxy-groups:
   - name: 🇭🇰 可乐云香港
     type: url-test
     use:
-      - 可乐云_Max
+      - 可乐云
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 180
     # disable-udp: true
-    filter: '香港'
+    filter: '香港|HK'
     # strategy: consistent-hashing
   
   - name: 🇭🇰 忍者云香港
@@ -302,20 +310,32 @@ proxy-groups:
     filter: '港'
     # strategy: consistent-hashing
 
+  - name: 🇭🇰 一日机场香港
+    type: url-test
+    use:
+      - 一日机场
+    tolerance: 30
+    # lazy: true
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 180
+    # disable-udp: true
+    filter: '🇭🇰|HK'
+    # strategy: consistent-hashing
 
   - name: 🇹🇼 台湾节点
     type: load-balance
     use:
       - AmyTelecom
       - CordCloud_NaNa
-      - 可乐云_Max
+      - 可乐云
       - 忍者云_6
+      - 一日机场
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
-    filter: '台'
+    filter: '台|TW'
     strategy: consistent-hashing
 
   - name: 🇯🇵 日本节点
@@ -323,14 +343,15 @@ proxy-groups:
     use:
       - AmyTelecom
       - CordCloud_NaNa
-      - 可乐云_Max
+      - 可乐云
       - 忍者云_6
+      - 一日机场
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
-    filter: '日'
+    filter: '日|JP|🇯🇵'
     strategy: consistent-hashing
 
   - name: 🇸🇬 新加坡节点
@@ -338,14 +359,15 @@ proxy-groups:
     use:
       - AmyTelecom
       - CordCloud_NaNa
-      - 可乐云_Max
+      - 可乐云
       - 忍者云_6
+      - 一日机场
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
-    filter: '新|坡'
+    filter: '新|坡|SG|🇸🇬'
     strategy: consistent-hashing
 
   - name: 🇺🇸 美国节点
@@ -353,14 +375,15 @@ proxy-groups:
     use:
       - AmyTelecom
       - CordCloud_NaNa
-      - 可乐云_Max
+      - 可乐云
       - 忍者云_6
+      - 一日机场
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
-    filter: '美'
+    filter: '美|US|🇺🇸'
     strategy: consistent-hashing
 
   - name: 🇺🇳 其他节点
@@ -368,19 +391,20 @@ proxy-groups:
     use:
       - AmyTelecom
       - CordCloud_NaNa
-      - 可乐云_Max
+      - 可乐云
       - 忍者云_6
+      - 一日机场
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: '^(?!.*(套餐|剩余|过期|到期|美|日|港|台|坡|新)).+$'
+    filter: '^(?!.*(套餐|剩余|过期|到期|美|日|港|台|坡|新|HK|US|TW|JP|SG)).+$'
 
 
 proxy-providers:
   AmyTelecom:
     type: http
-    url: https://api.nxtlnodes.com/Subscription/Clash?sid=31574&token=呼呼呼
+    url: https://api.nxtlnodes.com/Subscription/Clash?sid=呼呼呼&token=呼呼呼
     interval: 21600
     path: ./Proxies/AmyTelecom.yaml
     health-check:
@@ -396,11 +420,11 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  可乐云_Max:
+  可乐云:
     type: http
-    url: https://panel.kelecloud.xyz/api/v1/client/subscribe?token=呼呼呼&flag=clash
+    url: https://dingyuedizhi.com/api/v1/client/subscribe?token=呼呼呼
     interval: 21600
-    path: ./Proxies/可乐云_Max.yaml
+    path: ./Proxies/可乐云.yaml
     health-check:
       enable: true
       interval: 600
@@ -414,7 +438,15 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-
+  一日机场:
+    type: http
+    url: https://sub.lianpi.tk/api/v1/client/subscribe?token=呼呼呼
+    interval: 21600
+    path: ./Proxies/一日机场.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
 
 rule-providers:
   🖥本地网络:
