@@ -10,5 +10,7 @@ payload:
   - DOMAIN-SUFFIX,tbskip.taobao.com
   - DOMAIN-SUFFIX,ntalker.com
   - DOMAIN-SUFFIX,bcebos.com
+  - DOMAIN-SUFFIX,gay-torrents.org
+  - DOMAIN-SUFFIX,torrentleech.org
   - IP-CIDR,20.254.1.0/24,DIRECT
   - IP-CIDR,20.253.1.0/24,DIRECT
