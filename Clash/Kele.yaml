@@ -8,8 +8,12 @@ mode: rule                 #clash工作模式（rule/global/direct,meta暂不支
 log-level: info            #日志等级（info/warning/error/debug/silent）
 ipv6: false                #ip6开关，当为false时，停止解析hostanmes为ip6地址
 profile:                   #缓存设置(文件位置./cache.db)
-  store-selected: false    #节点状态记忆（若不同配置有同代理名称,设置值共享）
+  store-selected: true    #节点状态记忆（若不同配置有同代理名称,设置值共享）
   store-fake-ip: true      #fake-ip缓存
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
 
 sniffer:                         #【Meta专属】sniffer域名嗅探器
   enable: true                   #嗅探开关
@@ -65,7 +69,10 @@ dns:
   #   - '*.linksys.com'
   #   - '+.pool.ntp.org'
   #   - localhost.ptlogin2.qq.com
-  
+  nameserver-policy:
+    'geosite:cn': https://doh.pub/dns-query
+    'geosite:geolocation-!cn': [https://dns.adguard-dns.com/dns-query, https://doh.opendns.com/dns-query]
+
   proxy-server-nameserver:          #【Meta专属】解析代理服务器域名的dns
    - https://dns.adguard-dns.com/dns-query
    - https://doh.opendns.com/dns-query
@@ -98,13 +105,11 @@ proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
-      - 🔭 负载均衡
       - 🚀 故障切换
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
       - 🇭🇰 一日机场香港
+      - 🇯🇵 娜总自建日本节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇸🇬 新加坡节点
@@ -127,11 +132,8 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🔭 负载均衡
       - 🚀 故障切换
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
       - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
@@ -145,11 +147,8 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🔭 负载均衡
       - 🚀 故障切换
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
       - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
@@ -163,11 +162,8 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🔭 负载均衡
       - 🚀 故障切换
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
       - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
@@ -181,11 +177,8 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🔭 负载均衡
       - 🚀 故障切换
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
       - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
@@ -217,11 +210,8 @@ proxy-groups:
     type: select
     proxies:
       - 🔰 节点选择
-      - 🔭 负载均衡
       - 🚀 故障切换
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
       - 🇭🇰 一日机场香港
       - 🇹🇼 台湾节点
@@ -231,33 +221,15 @@ proxy-groups:
       - 🇺🇳 其他节点
       - DIRECT
 
-
-  - name: 🔭 负载均衡
-    type: load-balance
-    proxies:
-      - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
-      - 🇭🇰 忍者云香港
-      - 🇭🇰 一日机场香港
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 180
-    # lazy: true
-    # disable-udp: true
-    # filter: 'HK'            #【Meta专属】代理筛选
-    strategy: consistent-hashing   #策略：round-robin ：所有请求不使用同一代理
-                              #consistent-hashing：同一有效顶级域名(eTLD)使用同一代理
-
   - name: 🚀 故障切换
     type: fallback         #通过httping URL，当没有ping值时，自动切换下一个节点
     proxies:
       - 🇭🇰 AmyTelecom香港
-      - 🇭🇰 CordCloud香港
-      - 🇭🇰 可乐云香港
       - 🇭🇰 忍者云香港
       - 🇭🇰 一日机场香港
+      - 🇯🇵 娜总自建日本节点
     url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+    interval: 120
     # lazy: true
     # disable-udp: true
     # filter: 'HK'          #【Meta专属】代理筛选
@@ -269,46 +241,22 @@ proxy-groups:
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 180
+    interval: 120
     # disable-udp: true
     filter: '港'
     # strategy: consistent-hashing
 
-  - name: 🇭🇰 CordCloud香港
-    type: url-test
-    use:
-      - CordCloud_NaNa
-    tolerance: 30
-    # lazy: true
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 180
-    # disable-udp: true
-    filter: '香港'
-    # strategy: consistent-hashing
-
-  - name: 🇭🇰 可乐云香港
-    type: url-test
-    use:
-      - 可乐云
-    tolerance: 30
-    # lazy: true
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 180
-    # disable-udp: true
-    filter: '香港|HK'
-    # strategy: consistent-hashing
-  
   - name: 🇭🇰 忍者云香港
-    type: url-test
+    type: load-balance
     use:
-      - 忍者云_6
+      - 忍者云
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 180
+    interval: 120
     # disable-udp: true
     filter: '港'
-    # strategy: consistent-hashing
+    strategy: consistent-hashing
 
   - name: 🇭🇰 一日机场香港
     type: url-test
@@ -317,18 +265,16 @@ proxy-groups:
     tolerance: 30
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
-    interval: 180
+    interval: 120
     # disable-udp: true
     filter: '🇭🇰|HK'
     # strategy: consistent-hashing
 
   - name: 🇹🇼 台湾节点
-    type: load-balance
+    type: url-test
     use:
       - AmyTelecom
-      - CordCloud_NaNa
-      - 可乐云
-      - 忍者云_6
+      - 忍者云
       - 一日机场
     tolerance: 30
     lazy: true
@@ -336,15 +282,13 @@ proxy-groups:
     interval: 300
     # disable-udp: true
     filter: '台|TW'
-    strategy: consistent-hashing
+    # strategy: consistent-hashing
 
   - name: 🇯🇵 日本节点
-    type: load-balance
+    type: url-test
     use:
       - AmyTelecom
-      - CordCloud_NaNa
-      - 可乐云
-      - 忍者云_6
+      - 忍者云
       - 一日机场
     tolerance: 30
     lazy: true
@@ -352,31 +296,39 @@ proxy-groups:
     interval: 300
     # disable-udp: true
     filter: '日|JP|🇯🇵'
+    # strategy: consistent-hashing
+
+  - name: 🇯🇵 娜总自建日本节点
+    type: load-balance
+    use:
+      - NANAVPS
+    tolerance: 30
+    lazy: true
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    # disable-udp: true
+    filter: '日|JP|🇯🇵|BandVPS|VU'
     strategy: consistent-hashing
 
   - name: 🇸🇬 新加坡节点
-    type: load-balance
+    type: url-test
     use:
       - AmyTelecom
-      - CordCloud_NaNa
-      - 可乐云
-      - 忍者云_6
+      - 忍者云
       - 一日机场
     tolerance: 30
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     # disable-udp: true
-    filter: '新|坡|SG|🇸🇬'
-    strategy: consistent-hashing
+    filter: '新|坡|SG|🇸🇬|獅'
+    # strategy: consistent-hashing
 
   - name: 🇺🇸 美国节点
-    type: load-balance
+    type: url-test
     use:
       - AmyTelecom
-      - CordCloud_NaNa
-      - 可乐云
-      - 忍者云_6
+      - 忍者云
       - 一日机场
     tolerance: 30
     lazy: true
@@ -384,21 +336,19 @@ proxy-groups:
     interval: 300
     # disable-udp: true
     filter: '美|US|🇺🇸'
-    strategy: consistent-hashing
+    # strategy: consistent-hashing
 
   - name: 🇺🇳 其他节点
     type: select
     use:
       - AmyTelecom
-      - CordCloud_NaNa
-      - 可乐云
-      - 忍者云_6
+      - 忍者云
       - 一日机场
     lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
     # disable-udp: true
-    filter: '^(?!.*(套餐|剩余|过期|到期|美|日|港|台|坡|新|HK|US|TW|JP|SG)).+$'
+    filter: '^(?!.*(套餐|剩余|过期|到期|美|日|港|台|坡|獅|新|HK|US|TW|JP|SG)).+$'
 
 
 proxy-providers:
@@ -411,38 +361,32 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  CordCloud_NaNa:
+
+  忍者云:
     type: http
-    url: https://www.ccsub.online/link/呼呼呼?sub=2
+    url: https://ninjasub.com/link/呼呼呼?clash=1
     interval: 21600
-    path: ./Proxies/CordCloud_NaNa.yaml
+    path: ./Proxies/忍者云.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
-  可乐云:
-    type: http
-    url: https://dingyuedizhi.com/api/v1/client/subscribe?token=呼呼呼
-    interval: 21600
-    path: ./Proxies/可乐云.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  忍者云_6:
-    type: http
-    url: https://renzhesub.com/link/呼呼呼?clash=1
-    interval: 21600
-    path: ./Proxies/忍者云_6.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+
   一日机场:
     type: http
     url: https://sub.lianpi.tk/api/v1/client/subscribe?token=呼呼呼
     interval: 21600
     path: ./Proxies/一日机场.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
+  NANAVPS:
+    type: http
+    url: https://suo.yt/呼呼呼
+    interval: 21600
+    path: ./Proxies/NANAVPS.yaml
     health-check:
       enable: true
       interval: 600
@@ -485,12 +429,6 @@ rule-providers:
     behavior: classical
     url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml
     path: ./Rules/Advertising/Hijacking.yaml
-    interval: 86400
-  🛑360:
-    type: http
-    behavior: classical
-    url: https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/360/360.yaml
-    path: ./Rules/Other/360.yaml
     interval: 86400
   ⚪白名单:
     type: http
@@ -554,7 +492,6 @@ rule-providers:
     interval: 86400
 rules:
   - RULE-SET,⚪白名单,DIRECT
-  - RULE-SET,🛑360,⛔️ 广告拦截
   - RULE-SET,🛑反劫持,⛔️ 广告拦截
   - RULE-SET,⛔️广告拦截,⛔️ 广告拦截
   - RULE-SET,⛔️广告拦截域名,⛔️ 广告拦截
