@@ -1,1 +1,16 @@
-
+DOMAIN-SUFFIX,analysys.cn
+DOMAIN-SUFFIX,unicom.local
+DOMAIN-SUFFIX,checkip.synology.com
+DOMAIN-SUFFIX,talkingdata.com
+DOMAIN-SUFFIX,checkip.dyndns.org
+DOMAIN-SUFFIX,dw-online.ksosoft.com
+DOMAIN-SUFFIX,plussvr.kdocs.cn
+DOMAIN-SUFFIX,myhuaweicloud.com
+DOMAIN-SUFFIX,tbskip.taobao.com
+DOMAIN-SUFFIX,ntalker.com
+DOMAIN-SUFFIX,bcebos.com
+DOMAIN-SUFFIX,gay-torrents.org
+DOMAIN-SUFFIX,torrentleech.org
+DOMAIN-SUFFIX,hujiang.com
+IP-CIDR,20.254.1.0/24,DIRECT
+IP-CIDR,20.253.1.0/24,DIRECT
