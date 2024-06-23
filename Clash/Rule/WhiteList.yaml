@@ -13,6 +13,5 @@ payload:
   - DOMAIN-SUFFIX,gay-torrents.org
   - DOMAIN-SUFFIX,torrentleech.org
   - DOMAIN-SUFFIX,hujiang.com
-  - DOMAIN-SUFFIX,googleapis.com
   - IP-CIDR,20.254.1.0/24,DIRECT
   - IP-CIDR,20.253.1.0/24,DIRECT
