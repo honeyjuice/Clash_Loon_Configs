@@ -1,3 +1,4 @@
 payload:
   - DOMAIN-KEYWORD,ldplayer
   - DOMAIN-KEYWORD,ghproxy
+  - DOMAIN-SUFFIX,googleapis.com
