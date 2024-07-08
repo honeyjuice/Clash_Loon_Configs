@@ -13,5 +13,6 @@ payload:
   - DOMAIN-SUFFIX,gay-torrents.org
   - DOMAIN-SUFFIX,torrentleech.org
   - DOMAIN-SUFFIX,hujiang.com
-  - IP-CIDR,20.254.1.0/24,DIRECT
-  - IP-CIDR,20.253.1.0/24,DIRECT
+  - DOMAIN-SUFFIX,login.bce.baidu.com
+  - IP-CIDR,20.254.1.0/24
+  - IP-CIDR,20.253.1.0/24
