@@ -1,5 +1,6 @@
 payload:
   - DOMAIN-SUFFIX,analysys.cn
+  - DOMAIN-SUFFIX,s3.pstatp.com
   - DOMAIN-SUFFIX,unicom.local
   - DOMAIN-SUFFIX,checkip.synology.com
   - DOMAIN-SUFFIX,talkingdata.com
