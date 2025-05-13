@@ -16,3 +16,4 @@ DOMAIN-SUFFIX,cn-apple-pay-gateway-tj-pod1.apple.com
 DOMAIN-SUFFIX,cn-apple-pay-gateway-tj-pod2.apple.com
 DOMAIN-SUFFIX,cn-apple-pay-gateway-tj-pod3.apple.com
 DOMAIN-SUFFIX,sh-pod1-smp-device.apple.com
+DOMAIN-SUFFIX,tj-pod3-smp-device.apple.com
