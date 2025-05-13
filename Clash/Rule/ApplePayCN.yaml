@@ -17,3 +17,4 @@ payload:
   - cn-apple-pay-gateway-tj-pod2.apple.com
   - cn-apple-pay-gateway-tj-pod3.apple.com
   - sh-pod1-smp-device.apple.com
+  - tj-pod3-smp-device.apple.com
