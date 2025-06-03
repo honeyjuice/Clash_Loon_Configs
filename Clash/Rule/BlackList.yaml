@@ -3,4 +3,5 @@ payload:
   - DOMAIN-KEYWORD,ghproxy
   - DOMAIN-SUFFIX,uupdump.net
   - DOMAIN-SUFFIX,ghp.ci
+  - DOMAIN-SUFFIX,anitabi.cn
   - DOMAIN-SUFFIX,googleapis.com
